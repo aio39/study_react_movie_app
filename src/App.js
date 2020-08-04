@@ -1,10 +1,23 @@
-import React from 'react';
+import React from "react";
+import PropTypes from "prop-types";
+import { render } from "react-dom";
 
-function App() {
-  return (
-    <div className="App">
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    isLoading: true,
+    movies: [],
+  };
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ isLoading: false });
+    }, 2000);
+  }
+
+  render() {
+    const { isLoading } = this.state;
+    return <div>{isLoading ? "Loading" : "We are ready"} </div>;
+  }
 }
 
 export default App;
